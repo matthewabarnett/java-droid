@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droid Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #battery {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        class Droid {
+            constructor(name) {
+                this.name = name;
+                this.batteryLevel = 100;
+            }
+
+            performTask(task) {
+                if (this.batteryLevel > 0) {
+                    document.getElementById("status").innerText = `${this.name} is performing task: ${task}`;
+                    this.batteryLevel -= 10;
+                } else {
+                    document.getElementById("status").innerText = `${this.name} has no battery left!`;
+                }
+                document.getElementById("battery").innerText = `Battery Level: ${this.batteryLevel}%`;
+            }
+        }
+
+        let myDroid = new Droid("Codey");
+
+        function performTask(task) {
+            myDroid.performTask(task);
+        }
+    </script>
+</head>
+<body>
+    <h1>Droid Simulator</h1>
+    <h2 id="droidName">Hello, I'm droid: Codey</h2>
+    <p id="battery">Battery Level: 100%</p>
+    <p id="status"></p>
+
+    <button onclick="performTask('dancing')">Dance</button>
+    <button onclick="performTask('cleaning')">Clean</button>
+    <button onclick="performTask('charging')">Recharge</button>
+
+    <script>
+        document.querySelector("button:last-of-type").addEventListener("click", () => {
+            myDroid.batteryLevel = 100;
+            document.getElementById("battery").innerText = `Battery Level: ${myDroid.batteryLevel}%`;
+            document.getElementById("status").innerText = `${myDroid.name} is fully recharged!`;
+        });
+    </script>
+</body>
+</html>
