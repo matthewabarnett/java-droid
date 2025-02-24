@@ -7,7 +7,7 @@ This project makes use of:
 - JS
 
 ## 🌍 Live Site  
-[(https://snake-game-live-site.netlify.app/)](https://simplejavadroid.netlify.app/)
+(https://simplejavadroid.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0b3868e0-2130-446f-9add-4d0683360e7f/deploy-status)](https://app.netlify.com/sites/simplejavadroid/deploys)
 
